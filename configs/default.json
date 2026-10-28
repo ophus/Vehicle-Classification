@@ -2,7 +2,12 @@
   "project": "vehicle-recognition",
   "data_root": "data",
   "artifacts_dir": "artifacts",
-  "classes": ["motorbike", "car", "truck", "unknown"],
+  "classes": [
+    "motorbike",
+    "car",
+    "truck",
+    "unknown"
+  ],
   "background_label": "background",
   "fine_to_class": {
     "motorbike": "motorbike",
@@ -17,6 +22,30 @@
     "bicycle": "unknown",
     "other": "unknown"
   },
-  "split": {"train": 0.70, "val": 0.15, "test": 0.15, "by": "session", "seed": 42},
-  "annotation": {"min_box_px": 8, "bbox_tolerance_px": 1}
+  "split": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15,
+    "by": "session",
+    "seed": 42
+  },
+  "annotation": {
+    "min_box_px": 8,
+    "bbox_tolerance_px": 1
+  },
+  "patch": {
+    "size": 64,
+    "margin": 0.1
+  },
+  "features": {
+    "hog": {
+      "cell": 8,
+      "block": 16,
+      "stride": 8,
+      "nbins": 9
+    },
+    "spatial": 16,
+    "hist_bins": 16,
+    "color_space": "YCrCb"
+  }
 }

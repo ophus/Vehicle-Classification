@@ -1,0 +1,52 @@
+{
+ "patch": {
+  "size": 64,
+  "margin": 0.1
+ },
+ "args": {
+  "neg_per_frame": 6,
+  "min_side": 16,
+  "max_cover": 0.2,
+  "roi_file": "data/roi.json",
+  "seed": 42,
+  "overwrite": true
+ },
+ "splits": {
+  "train": {
+   "patches": 712,
+   "per_class": {
+    "motorbike": 206,
+    "car": 214,
+    "truck": 7,
+    "unknown": 9,
+    "background": 276
+   },
+   "skipped_small_boxes": 1,
+   "negatives_not_found": 0,
+   "gt_outside_roi": 14
+  },
+  "val": {
+   "patches": 173,
+   "per_class": {
+    "motorbike": 63,
+    "car": 44,
+    "background": 66
+   },
+   "skipped_small_boxes": 0,
+   "negatives_not_found": 0,
+   "gt_outside_roi": 2
+  },
+  "test": {
+   "patches": 342,
+   "per_class": {
+    "motorbike": 113,
+    "car": 129,
+    "unknown": 4,
+    "background": 96
+   },
+   "skipped_small_boxes": 0,
+   "negatives_not_found": 0,
+   "gt_outside_roi": 0
+  }
+ }
+}

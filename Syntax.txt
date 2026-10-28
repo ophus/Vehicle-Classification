@@ -1,0 +1,25 @@
+python --version
+python -m pip install --upgrade pip
+python -m pip install numpy opencv-python pandas scikit-learn matplotlib joblib
+
+//
+
+python scripts/extract_frames.py --video <đường dẫn clip> --session-id S01 --fps 1
+python scripts/label_tool.py --session S01
+
+Thao tác trong cửa sổ:
+
+Vẽ box: kéo chuột trái. Box lấy lớp đang chọn ở dòng xanh trên cùng.
+Xóa box: chuột phải vào box. Hoặc phím u để hoàn tác box vừa vẽ.
+Chọn lớp: phím 1 xe máy, 2 ô tô, 3 xe tải, 4 không xác định.
+Chọn loại chi tiết (fine_label): phím f đổi vòng quanh. Ví dụ lớp ô tô: car → taxi → suv → pickup. Lớp không xác định: bus, minibus, van, bicycle, other.
+Thuộc tính cho box kế tiếp: o (che khuất 0/1/2), t (bị cắt mép ảnh).
+Chuyển khung: n hoặc Space (sang khung kế, tính là đã duyệt), b (lùi), j (tới khung chưa duyệt đầu tiên).
+Thoát: q hoặc Esc. Công cụ tự lưu khi đổi khung và khi thoát. Mở lại sẽ tiếp tục từ khung chưa duyệt.
+
+Khung không có xe trong vùng quan tâm vẫn bấm n để đánh dấu đã duyệt (khung rỗng là hợp lệ).
+Kiểm tra sau khi gán nhãn:
+
+python scripts/validate_dataset.py --deep
+
+//

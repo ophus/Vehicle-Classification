@@ -87,6 +87,14 @@ class LabelToolTests(unittest.TestCase):
         drag(ui, 150, 60, 400, 300)                                # dragged outside -> clipped
         self.assertEqual(store.frames[0]["boxes"][0]["bbox"], [150, 60, 200, 100])
 
+    def test_store_clips_every_side(self):
+        store, ui = self.open()
+        drag(ui, 40, 30, -50, -30)                                 # released outside left/top
+        self.assertEqual(store.frames[0]["boxes"][0]["bbox"], [0, 0, 40, 30])
+        store.add_box(1, [-10, -5, 40, 30], "car")                 # first corner outside
+        store.add_box(1, [160, 70, 300, 400], "car")               # second corner outside
+        self.assertEqual([b["bbox"] for b in store.frames[1]["boxes"]], [[0, 0, 40, 30], [160, 70, 200, 100]])
+
     def test_undo_and_right_click_delete_smallest(self):
         store, ui = self.open()
         drag(ui, 10, 10, 100, 90)
