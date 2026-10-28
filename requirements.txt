@@ -1,0 +1,9 @@
+# Unpinned ON PURPOSE. Pin to the versions reported by scripts/check_env.py on Colab
+# (artifacts/configs/env_colab_*.json), then install the same versions on the laptop.
+numpy
+opencv-python
+pandas
+scikit-learn
+matplotlib
+joblib
+tensorflow
